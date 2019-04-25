@@ -1,0 +1,16 @@
+(1).关于并发，多线程问题。
+其中有一篇介绍volatile的文章：https://www.cnblogs.com/dolphin0520/p/3920373.html
+synchronized关键字的文章：http://www.importnew.com/21866.html
+1.保证程序在多线程下正确执行的三个因素：原子性、可见性、有序性。其中volatile关键字可以保证共享变量的值对于每一个线程来说都是最新的（可见性），但是无法保证操作的原子性。想要保证操作的原子性，可以使用lock或者synchronized关键字，还可以使用原子的包装类还确保原子性。
+说明：volatile关键字可以保持可见性和一定程度上的有序性，但是无法保证原子性。
+	  lock和synchronized关键字可以保证原子性、可见性和有序性。
+
+2.wait notify notifyall
+   这三个关键字是object对象拥有的。并且这三个关键字一般是和synchronized关键字配合使用的。
+ wait让程序释放锁，并且当前线程处于等待状态。notify是让其它线程active。
+    一般情况下是while、wait和notifyall配合使用。
+
+
+ 3.Lock锁
+  ReentrantLock ReadWriteLock(ReenrantReadWriteLock)
+   当发生异常的时候，synchronized会自动释放锁；但是lock还是需要人手动释放锁。
